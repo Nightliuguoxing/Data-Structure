@@ -71,7 +71,7 @@ Status Traverse_SqList(SqList L){
 Status Inversion_SqList(SqList &L){
     if(L.Length <= 0) return ERROR;
     ElemType t;
-    for (int i = 1 ; i <= L.Length/2 ; i++){
+    for (int i = 1 ; i < L.Length/2 ; i++){
         t = L.elem[L.Length - i];
         L.elem[L.Length - i] = L.elem[i -1];
         L.elem[i - 1] = t;
@@ -113,6 +113,65 @@ Status Merge_SqList(SqList LA, SqList LB, SqList &LC){
 ```c++
 Status Merge_SqList(SqList LA, SqList &LB){
     if(LA.Length == 0 && LB.Length == 0) return ERROR;
-    int i = j = 1, k = 0;
+}
+```
+
+##### 删除相同元素的值
+```c++
+Status Delete_E_SqList(SqList &L, ElemType e){
+    if(L.Length == 0) return ERROR;
+    int count = 0;
+    for(int i = 0; i < L.Length; i++){
+        if(L.elem[i] != x){
+            L.elem[count] = L.elem[i];
+            count++;
+        }
+        L.length = count;
+    }
+}
+
+Status Delete_E_SqList(SqList &L, ElemType e){
+    if(L.Length == 0) return ERROR;
+    int count = 0;
+    for(int i = 0; i < L.Length; i++){
+        if(L.elem[i] == e){
+            count++;
+        } else {
+            L.elem[i - count - 1] = L.elem[i - 1];
+        }
+        L.Length = L.Length - count;
+
+    }
+}
+```
+
+##### 删除给定区间的元素
+```c++
+Status Delete_mn_SqList(SqList &L, ElemType m, ElemType n){
+    int i, k = 0;
+    if(L.Length == 0 || m >= n) return ERROR;
+    for(i = 0 ; i < L.Length ; i++){
+        if(L.elem[i] >= m && L.elem[i] <= n){
+            k++;
+        } else {
+            L.elem[i - k] = L.elem[i];
+        }
+    }
+    L.Length -= k;
+    return OK;
+}
+```
+##### 有序顺序表删除重复的值
+```c++
+Status Delete_Same_SqList(SqList &L, ElemType e){
+    if(L.Length == 0) return ERROR;
+    int i, j;
+    for(i = 0 , j = 1; j < L.Length; j++){
+        if(L.elem[i] != L.elem[j]){
+            L.elem[++i] = L.elem[j];
+        }
+    }
+    L.Length = i + 1;
+    return OK;
 }
 ```
