@@ -3,9 +3,8 @@
 ```c
 // 定义结构体
 #define MAXSIZE 100
-
 #define INC 10
-
+typedef Elemtype int;
 typedef struct {
     ElemType *elem;
     int length;
