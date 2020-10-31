@@ -80,18 +80,39 @@ Status Inversion_SqList(SqList &L){
 }
 ```
 
-##### 合并(1)
+##### 合并(三表)
 ```c++
 Status Merge_SqList(SqList LA, SqList LB, SqList &LC){
     Init_SqList(LC);
     int i = j = 1, k = 0;
-    
+    if(LA.Length == 0 && LB.Length == 0) return ERROR;
+    while(i <= LA.Length && j <= LB.Length){
+        GetElem(LA, i, ea);
+        GetElem(LB, j, eb);
+        if(ea <= eb) {
+            Insert_SqList(LC, k++, ea);
+            i++;
+        }else{
+            Insert_SqList(LC, k++, eb);
+            j++;
+        }
+    }
+    while(i <= LA.Length){
+        GetElem(LA, i++, ea);
+        Insert_SqList(LC, k++, ea);
+    }
+    while(j <= LB.Length){
+        GetElem(LB, i++, eb);
+        Insert_SqList(LC, k++, eb);
+    }
+    return OK;
 }
 ```
 
-##### 合并(2)
+##### 合并(两表)
 ```c++
-Status Merge_SqList(SqList LA, SqList LB){
-    
+Status Merge_SqList(SqList LA, SqList &LB){
+    if(LA.Length == 0 && LB.Length == 0) return ERROR;
+    int i = j = 1, k = 0;
 }
 ```
