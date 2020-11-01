@@ -99,6 +99,7 @@ Status LocateElem_LinkList(LinkList L, ElemType e){
         i++;
     }
     cout << i ;
+    return OK;
 }
 ```
 
@@ -134,6 +135,7 @@ Status Delete_LinkList(LinkList &L, int i){
     p->next = q->next;
     cout << q->data << " ";
     free(q);
+    return OK;
 }
 ```
 
@@ -185,12 +187,50 @@ Status Delete_E_LinkList(LinkList &L, ElemType e){
    }
    return OK;
 }
+
+Status Delete_E_LinkList(LinkList &L, ElemType e){
+    LNode *p = L->next, *r = L, *q;
+    while(p != NULL){
+        if(p->data != e){
+            r->next = p;
+            r = p;
+            p = p->next;
+        }else{
+            q = p;
+            p = p->next;
+            free(q);
+        }
+        r->next = NULL;
+    }
+    return OK;
+}
 ```
 
-##### 合并
+##### 合并有序顺序表(递增)
 ```c++
 Status Merge_LinkList(LinkList &LA, LinkList &LB, LinkList &LC){
-    
+    LNode *pa = LA->next, *pb = LB->next, *pc, *q;
+    LC = pc = LA;
+    while(pa && pb){
+        if(pa->data < pb->data){
+            pc->next = pa;
+            pc = pa;
+            pa = pa->next;
+        }else if (pa->data > pb->data){
+            pc->next = pb;
+            pc = pb;
+            pb = pb->next;
+        }else{
+            pc->next = pa;
+            pc = pa;
+            pa = pa->next;
+            q = pb;
+            pb = pb->next;
+            free(q);
+        }
+    }
+    pc->next=pa?pa:pb;
+    free(LB);
+    return OK;
 }
-
 ```
