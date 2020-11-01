@@ -109,13 +109,6 @@ Status Merge_SqList(SqList LA, SqList LB, SqList &LC){
 }
 ```
 
-##### 合并(两表)
-```c++
-Status Merge_SqList(SqList LA, SqList &LB){
-    if(LA.Length == 0 && LB.Length == 0) return ERROR;
-}
-```
-
 ##### 删除相同元素的值
 ```c++
 Status Delete_E_SqList(SqList &L, ElemType e){
