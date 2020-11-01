@@ -1,12 +1,12 @@
 ### 顺序表
 
 ##### 结构体定义
-```c
+```c++
 #define MAXSIZE 100
 #define OK 1
 #define ERROR 0
 
-typedef Elemtype int;
+typedef ElemType int;
 typedef Status int;
 
 typedef struct {
@@ -19,7 +19,7 @@ typedef struct {
 ##### 初始化
 ```c++
 Status Init_SqList(SqList &L){
-    L.elem = (Elemtype *) malloc (MAXSIZE * sizeof (ElemType));
+    L.elem = (ElemType *) malloc (MAXSIZE * sizeof (ElemType));
     if(!L.elem) return ERROR;
     L.Length = 0;
     L.ListSize = MAXSIZE;
@@ -161,7 +161,7 @@ Status Delete_mn_SqList(SqList &L, ElemType m, ElemType n){
     return OK;
 }
 ```
-##### 有序顺序表删除重复的值
+##### 有序顺序表去重
 ```c++
 Status Delete_Same_SqList(SqList &L, ElemType e){
     if(L.Length == 0) return ERROR;
