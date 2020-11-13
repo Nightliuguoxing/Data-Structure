@@ -1,6 +1,7 @@
 ### 顺序表
 
 ##### 结构体定义
+
 ```c++
 #define MAXSIZE 100
 #define OK 1
@@ -17,6 +18,7 @@ typedef struct {
 ```
 
 ##### 初始化
+
 ```c++
 Status Init_SqList(SqList &L){
     L.elem = (ElemType *) malloc (MAXSIZE * sizeof (ElemType));
@@ -28,6 +30,7 @@ Status Init_SqList(SqList &L){
 ```
 
 ##### 插入
+
 ```c++
 Status Insert_SqList(SqList &L, int i, ElemType e){
     if(i < 1 || i > L.Length + 1) return ERROR;
@@ -42,6 +45,7 @@ Status Insert_SqList(SqList &L, int i, ElemType e){
 ```
 
 ##### 删除
+
 ```c++
 Status Delete_SqList(SqList &L, int i, ElemType &e){
     if(i < 1 || i > L.Length) return ERROR;
@@ -56,6 +60,7 @@ Status Delete_SqList(SqList &L, int i, ElemType &e){
 ```
 
 ##### 遍历
+
 ```c++
 Status Traverse_SqList(SqList L){
     if(L.Length <= 0) return ERROR;
@@ -67,6 +72,7 @@ Status Traverse_SqList(SqList L){
 ```
 
 ##### 逆置
+
 ```c++
 Status Inversion_SqList(SqList &L){
     if(L.Length <= 0) return ERROR;
@@ -81,6 +87,7 @@ Status Inversion_SqList(SqList &L){
 ```
 
 ##### 合并(三表)
+
 ```c++
 Status Merge_SqList(SqList LA, SqList LB, SqList &LC){
     Init_SqList(LC);
@@ -110,6 +117,7 @@ Status Merge_SqList(SqList LA, SqList LB, SqList &LC){
 ```
 
 ##### 删除相同元素的值
+
 ```c++
 Status Delete_E_SqList(SqList &L, ElemType e){
     if(L.Length == 0) return ERROR;
@@ -139,6 +147,7 @@ Status Delete_E_SqList(SqList &L, ElemType e){
 ```
 
 ##### 删除给定区间的元素
+
 ```c++
 Status Delete_mn_SqList(SqList &L, ElemType m, ElemType n){
     int i, k = 0;
@@ -154,7 +163,9 @@ Status Delete_mn_SqList(SqList &L, ElemType m, ElemType n){
     return OK;
 }
 ```
+
 ##### 有序顺序表去重
+
 ```c++
 Status Delete_Same_SqList(SqList &L, ElemType e){
     if(L.Length == 0) return ERROR;
