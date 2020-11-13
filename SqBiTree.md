@@ -1,6 +1,7 @@
 ### 二叉树
 
 ##### 结构体定义
+
 ```c++
 #define OK 1
 #define ERROR 0
@@ -16,6 +17,7 @@ typedef struct BiTNode{
 ```
 
 ##### 先序创建二叉树
+
 ```c++
 Status CreateBiTree(BiTree &T){
     char ch;
@@ -32,7 +34,9 @@ Status CreateBiTree(BiTree &T){
     return OK;
 }
 ```
+
 ##### 获取叶子结点
+
 ```c++
 Status GetLeaf(BiTree T){
     int count;
@@ -48,6 +52,7 @@ Status GetLeaf(BiTree T){
 ```
 
 ##### 获取二叉树深度
+
 ```c++
 Status GetDeep(BiTree T){
     if(T == NULL){
@@ -60,6 +65,7 @@ Status GetDeep(BiTree T){
 ```
 
 ##### 前序遍历
+
 ```c++
 Status PreOrderTraverse(BiTree T, int deep){
     static int prel = GetDeep(T);
@@ -74,6 +80,7 @@ Status PreOrderTraverse(BiTree T, int deep){
 ```
 
 ##### 中序遍历
+
 ```c++
 Status InOrderTraverse(BiTree T, int deep){
     static int inl = GetDeep(T);
@@ -88,6 +95,7 @@ Status InOrderTraverse(BiTree T, int deep){
 ```
 
 ##### 后续遍历
+
 ```c++
 Status PostOrderTraverse(BiTree T, int deep){
     static int pol = GetDeep(T);
@@ -102,6 +110,7 @@ Status PostOrderTraverse(BiTree T, int deep){
 ```
 
 ##### 交换子树
+
 ```c++
 Status ExChangeTree(BiTree &T){
     BiTNode *p;
