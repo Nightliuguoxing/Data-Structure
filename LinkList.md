@@ -1,6 +1,7 @@
 ### 链表
 
 ##### 结构体定义
+
 ```c++
 #define MAXSIZE 100
 #define OK 1
@@ -16,6 +17,7 @@ typedef struct LNode{
 ```
 
 ##### 初始化
+
 ```c++
 Status Init_LinkList(LinkList &L){
     L = (LinkList) malloc (sizeof(LNode));
@@ -25,6 +27,7 @@ Status Init_LinkList(LinkList &L){
 ```
 
 ##### 头插法
+
 ```c++
 Status HeadInsert_LinkList(LinkList &L, int n){
     LNode p;
@@ -40,6 +43,7 @@ Status HeadInsert_LinkList(LinkList &L, int n){
 ```
 
 ##### 尾插法
+
 ```c++
 Status TailInsert_LinkList(LinkList &L, int n){
     LNode p;
@@ -57,6 +61,7 @@ Status TailInsert_LinkList(LinkList &L, int n){
 ```
 
 ##### 遍历
+
 ```c++
 Status Traverse_LinkList(LinkList L){
     LNode *p;
@@ -71,6 +76,7 @@ Status Traverse_LinkList(LinkList L){
 ```
 
 ##### 按序号查找结点值
+
 ```c++
 Status GetElem_LinkList(LinkList L, int i){
     int j = 0;
@@ -82,13 +88,14 @@ Status GetElem_LinkList(LinkList L, int i){
     while(p && j < i ){
         p = p->next;
         j++;
-    } 
+    }
     cout << p->data;
-    return OK; 
+    return OK;
 }
 ```
 
 ###### 按值查找结点
+
 ```c++
 Status LocateElem_LinkList(LinkList L, ElemType e){
     int i = 0;
@@ -104,6 +111,7 @@ Status LocateElem_LinkList(LinkList L, ElemType e){
 ```
 
 ##### 前插
+
 ```c++
 Status Insert_LinkList(LinkList &L, int i, ElemType e){
     LNode *p = L, *s;
@@ -122,6 +130,7 @@ Status Insert_LinkList(LinkList &L, int i, ElemType e){
 ```
 
 ##### 删除(位置)
+
 ```c++
 Status Delete_LinkList(LinkList &L, int i){
     LNode *p = L, *q;
@@ -140,6 +149,7 @@ Status Delete_LinkList(LinkList &L, int i){
 ```
 
 ##### 逆序
+
 ```c++
 Status Inversion_LinkList(LinkList &L){
     LNode *p , *q;
@@ -150,7 +160,7 @@ Status Inversion_LinkList(LinkList &L){
        p = p->next;
        q->next = L->next;
        L->next = q;
-    } 
+    }
     return OK;
 }
 
@@ -164,13 +174,14 @@ Status Inversion_T_LinkList(LinkList &L){
        p = r;
        r = r->next;
        p->next = pre;
-    } 
+    }
     L->next = p;
     return OK;
 }
 ```
 
 ##### 删除相同元素的值
+
 ```c++
 Status Delete_E_LinkList(LinkList &L, ElemType e){
    LNode *p = L->next , *pre = L, *q;
@@ -207,6 +218,7 @@ Status Delete_E_LinkList(LinkList &L, ElemType e){
 ```
 
 ##### 合并有序顺序表(递增)
+
 ```c++
 Status Merge_LinkList(LinkList &LA, LinkList &LB, LinkList &LC){
     LNode *pa = LA->next, *pb = LB->next, *pc, *q;
