@@ -1,6 +1,7 @@
 ### 顺序栈
 
 ##### 结构体定义
+
 ```c++
 #define MAXSIZE 10
 #define OK 1
@@ -19,6 +20,7 @@ typedef struct {
 ```
 
 ##### 初始化
+
 ```c++
 Status InitStack(SqStack &s) {
     s.base = (SElemType *) malloc(MAXSIZE * sizeof(SElemType));
@@ -29,7 +31,9 @@ Status InitStack(SqStack &s) {
     return OK;
 }
 ```
+
 ##### 判空
+
 ```c++
 Status IsEmpty(SqStack s) {
     if (s.top == s.base)
@@ -38,7 +42,9 @@ Status IsEmpty(SqStack s) {
         return FALSE;
 }
 ```
+
 ##### 判满
+
 ```c++
 Status IsFull(SqStack s) {
     if (s.top - s.base >= s.stackSize)
@@ -47,7 +53,9 @@ Status IsFull(SqStack s) {
         return FALSE;
 }
 ```
+
 ##### 入栈
+
 ```c++
 Status Push(SqStack &s, SElemType e) {
     if (IsFull(s)) {
@@ -61,7 +69,9 @@ Status Push(SqStack &s, SElemType e) {
     }
 }
 ```
+
 ##### 出栈
+
 ```c++
 Status Pop(SqStack &s, SElemType &e) {
     if (IsEmpty(s)) {
@@ -74,7 +84,9 @@ Status Pop(SqStack &s, SElemType &e) {
     }
 }
 ```
+
 ##### 获取栈顶元素
+
 ```c++
 Status GetTop(SqStack s, SElemType &e) {
     if (IsEmpty(s)) {
@@ -85,7 +97,9 @@ Status GetTop(SqStack s, SElemType &e) {
     }
 }
 ```
+
 ##### 置空
+
 ```c++
 Status SetEmpty(SqStack &s) {
     if (s.base) {
@@ -97,7 +111,9 @@ Status SetEmpty(SqStack &s) {
     }
 }
 ```
+
 ##### 销毁
+
 ```c++
 Status DestoryStack(SqStack &s) {
     if (s.base) {
@@ -112,7 +128,9 @@ Status DestoryStack(SqStack &s) {
     }
 }
 ```
+
 ##### 遍历
+
 ```c++
 Status visit(SElemType e) {
     cout << e << "  ";
